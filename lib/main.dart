@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:multiply/screens/home_screen.dart';
 import 'package:multiply/screens/input.dart';
-import 'package:multiply/screens/splash_screen.dart';
+
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   runApp(MyApp());
 }
 
@@ -12,13 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        backgroundColor: Colors.pink
-      ),
+
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home: SplashScreen()
+      home: InputScreen()
     );
   }
 }
